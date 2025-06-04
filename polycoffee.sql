@@ -1,0 +1,43 @@
+﻿CREATE DATABASE Du_lieu_menu
+use Du_lieu_menu
+CREATE TABLE TABLE1(
+	MASP varchar(50) primary key,
+	TENSP nvarchar(100) ,
+	LANHORNONG nvarchar(100),
+	GIASP float,
+	TINHTRANG nvarchar(100),
+	GHICHU nvarchar(1000),
+)
+
+
+CREATE TABLE sanpham(
+	MASP varchar(50) primary key,
+	TENSP nvarchar(100) ,
+	GIASP float,
+	TINHTRANG nvarchar(100),
+	GHICHU nvarchar(1000),
+)
+INSERT INTO sanpham
+VALUES
+('SP01', N'CÀ PHÊ ĐEN', 25000, N'CÒN', N'KCJ'),
+('SP02', N'CÀ PHÊ NÂU', 35000, N'CÒN', N'KCJ'),
+('SP03', N'CÀ PHÊ CỐT DỪA', 50000, N'CÒN', N'KCJ'),
+('SP04', N'CÀ PHÊ MUỐI', 40000, N'CÒN', N'KCJ'),
+('SP05', N'NƯỚC CHANH TƯƠI', 40000, N'CÒN', N'KCJ')
+select * from sanpham
+
+CREATE TABLE QLNV(
+	ID VARCHAR(20),
+	USERNAME VARCHAR(100),
+	PASS VARCHAR(100),
+	CHUCVU VARCHAR(20)
+)
+INSERT INTO QLNV
+VALUES
+	('US001','STAFF111','STAFF123456789','STAFF'),
+	('US002','STAFF100','STAFF123456789','STAFF'),
+	('US003','STAFF123','STAFF123456789','STAFF'),
+	('US004','STAFF192','STAFF123456789','STAFF'),
+	('US005','STAFF105','STAFF123456789','STAFF'),
+	('US006','STAFF143','STAFF123456789','STAFF')
+SELECT * FROM sanpham
