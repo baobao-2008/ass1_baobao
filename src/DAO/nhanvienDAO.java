@@ -67,6 +67,10 @@ public int addnv(nhanvien nv){
         }
         return 0;
 
+        
+        
+        
+        
 
         
         
