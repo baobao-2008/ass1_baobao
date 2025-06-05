@@ -41,7 +41,7 @@ public class qlnv extends javax.swing.JFrame {
         String id = txtId.getText();
         String username = txtUsername.getText();
         String password = txtPassword.getText();
-        String Chucvu = txtChucvu.getText();
+        String Chucvu = (String) cbbChucvu.getSelectedItem();
         nhanvien nv = new nhanvien(id, username, password, Chucvu);
     int result = nvd.addnv(nv);
     if( result==1){
@@ -59,7 +59,7 @@ public class qlnv extends javax.swing.JFrame {
     String id = txtId.getText();
         String username = txtUsername.getText();
         String password = txtPassword.getText();
-        String Chucvu = txtChucvu.getText();
+        String Chucvu = (String) cbbChucvu.getSelectedItem();
         nhanvien nv = new nhanvien(id, username, password, Chucvu);
     int result = nvd.Updatenv(id, nv);
     if( result==1){
@@ -91,7 +91,7 @@ public class qlnv extends javax.swing.JFrame {
         txtId.setText(null);
         txtUsername.setText(null);
         txtPassword.setText(null);
-        txtChucvu.setText(null);
+        cbbChucvu.setSelectedIndex(0);
     }
     public void nhanbang(){
         int chon = tblBang.getSelectedRow();
@@ -100,7 +100,7 @@ public class qlnv extends javax.swing.JFrame {
             txtId.setText(nv.getId());
             txtUsername.setText(nv.getUsername());
             txtPassword.setText(nv.getPass());
-            txtChucvu.setText(nv.getChucvu());
+            cbbChucvu.setSelectedItem(nv.getChucvu());
             
         }
     }
@@ -120,7 +120,6 @@ public class qlnv extends javax.swing.JFrame {
         txtId = new javax.swing.JTextField();
         txtUsername = new javax.swing.JTextField();
         txtPassword = new javax.swing.JTextField();
-        txtChucvu = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         btnThem = new javax.swing.JButton();
         btnSua = new javax.swing.JButton();
@@ -129,6 +128,7 @@ public class qlnv extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblBang = new javax.swing.JTable();
+        cbbChucvu = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -196,6 +196,8 @@ public class qlnv extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tblBang);
 
+        cbbChucvu.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "STAFF", "ADMIN" }));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -203,14 +205,6 @@ public class qlnv extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(94, 94, 94)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtChucvu))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtPassword))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -219,7 +213,15 @@ public class qlnv extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(txtId, javax.swing.GroupLayout.DEFAULT_SIZE, 267, Short.MAX_VALUE)
-                            .addComponent(txtUsername))))
+                            .addComponent(txtUsername)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtPassword)
+                            .addComponent(cbbChucvu, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addGap(65, 65, 65)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnThem, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -259,9 +261,9 @@ public class qlnv extends javax.swing.JFrame {
                     .addComponent(btnXoa))
                 .addGap(49, 49, 49)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtChucvu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4)
-                    .addComponent(btnLammoi))
+                    .addComponent(btnLammoi)
+                    .addComponent(cbbChucvu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(48, 48, 48)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(84, Short.MAX_VALUE))
@@ -339,6 +341,7 @@ public class qlnv extends javax.swing.JFrame {
     private javax.swing.JButton btnSua;
     private javax.swing.JButton btnThem;
     private javax.swing.JButton btnXoa;
+    private javax.swing.JComboBox<String> cbbChucvu;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -346,7 +349,6 @@ public class qlnv extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblBang;
-    private javax.swing.JTextField txtChucvu;
     private javax.swing.JTextField txtId;
     private javax.swing.JTextField txtPassword;
     private javax.swing.JTextField txtUsername;

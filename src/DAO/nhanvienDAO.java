@@ -70,6 +70,10 @@ public int addnv(nhanvien nv){
 
         
         
+        
+        
+        
+        
     }
     public int Updatenv(String id, nhanvien nv){
         String sql ="update QLNV set ID = ?,USERNAME =?,PASS =?,CHUCVU =? where ID= ? ";
